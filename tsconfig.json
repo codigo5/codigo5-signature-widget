@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "preserveConstEnums": true,
+    "emitDecoratorMetadata": true,
+    "experimentalAsyncFunctions": true,
+    "experimentalDecorators": true
+  }
+}
