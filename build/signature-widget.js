@@ -30,7 +30,7 @@ exports.default = Host;
 "use strict";
 
 var signature_1 = require('./signature');
-exports.VERSION = '1.0.0';
+exports.VERSION = '1.1.0';
 function bootstrap(_options) {
     var options = Object.assign({ selector: '.codigo5-signature-widget-wrapper' }, _options);
     // TODO: We could use ES6 babel polyfill, right? `Array.from`
@@ -104,7 +104,11 @@ var Signature = function () {
     }, {
         key: 'theme',
         get: function get() {
-            return SignatureTheme[this._options.theme];
+            if (typeof this._options.theme === 'string') {
+                return this._options.theme.toString();
+            } else {
+                return SignatureTheme[this._options.theme];
+            }
         }
     }]);
 

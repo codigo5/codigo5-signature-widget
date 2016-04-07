@@ -43,7 +43,11 @@ export default class Signature {
   }
 
   get theme(): string {
-    return SignatureTheme[this._options.theme];
+    if (typeof this._options.theme === 'string') {
+      return this._options.theme.toString();
+    } else {
+      return SignatureTheme[this._options.theme];
+    }
   }
 
   render(): void {

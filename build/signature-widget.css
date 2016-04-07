@@ -3,9 +3,9 @@
   padding: 20px 0;
   text-align: center; }
   .codigo5-signature-widget.is-light {
-    background: #000; }
-  .codigo5-signature-widget.is-dark {
     background: #fff; }
+  .codigo5-signature-widget.is-dark {
+    background: #000; }
 
 .codigo5-signature-widget__logo {
   display: inline-block; }
