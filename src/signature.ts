@@ -2,6 +2,7 @@ import UrlBuilder, {IUrlBuilder} from './url-builder';
 import Host, {IHost} from './host';
 
 export interface ISignatureOptions {
+  cdnBaseUrl: string;
   theme: SignatureTheme;
   logoWidth: number;
   logoHeight: number;
@@ -16,6 +17,7 @@ export const SIGNATURE_URL: string = 'http://www.codigo5.com.br/';
 
 export default class Signature {
   public static defaultOptions: ISignatureOptions = {
+    cdnBaseUrl: '',
     theme: SignatureTheme.light,
     logoWidth: 200,
     logoHeight: 49
@@ -39,7 +41,7 @@ export default class Signature {
   }
 
   get logoUrl(): string {
-    return `https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master/resources/codigo5-logo-for-${this.theme}-theme.png`;
+    return `${this._options.cdnBaseUrl}/resources/codigo5-logo-for-${this.theme}-theme.png`;
   }
 
   get theme(): string {

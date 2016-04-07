@@ -30,9 +30,28 @@ exports.default = Host;
 "use strict";
 
 var signature_1 = require('./signature');
-exports.VERSION = '1.1.0';
+exports.VERSION = '1.2.0';
+exports.DEFAULT_OPTIONS = {
+    cdnBaseUrl: 'https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master',
+    selector: '.codigo5-signature-widget-wrapper',
+    autoLoadDeps: true
+};
+var depsLoaded = false;
+var loadDeps = function loadDeps(options) {
+    if (!depsLoaded) {
+        var stylesheet = document.createElement('link');
+        stylesheet.setAttribute('rel', 'stylesheet');
+        stylesheet.setAttribute('type', 'text/css');
+        stylesheet.setAttribute('href', options.cdnBaseUrl + '/build/signature-widget.min.css');
+        // append them
+        document.querySelector('head').appendChild(stylesheet);
+    }
+};
 function bootstrap(_options) {
-    var options = Object.assign({ selector: '.codigo5-signature-widget-wrapper' }, _options);
+    var options = Object.assign({}, exports.DEFAULT_OPTIONS, _options);
+    if (options.autoLoadDeps) {
+        loadDeps(options);
+    }
     // TODO: We could use ES6 babel polyfill, right? `Array.from`
     Array.prototype.slice.apply(document.querySelectorAll(options.selector)).forEach(function (element) {
         return element.cod5Signature = element.cod5Signature || new signature_1.default(element, options);
@@ -99,7 +118,7 @@ var Signature = function () {
     }, {
         key: 'logoUrl',
         get: function get() {
-            return 'https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master/resources/codigo5-logo-for-' + this.theme + '-theme.png';
+            return this._options.cdnBaseUrl + '/resources/codigo5-logo-for-' + this.theme + '-theme.png';
         }
     }, {
         key: 'theme',
@@ -116,6 +135,7 @@ var Signature = function () {
 }();
 
 Signature.defaultOptions = {
+    cdnBaseUrl: '',
     theme: SignatureTheme.light,
     logoWidth: 200,
     logoHeight: 49
