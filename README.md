@@ -4,7 +4,7 @@ That's a JS widget to inject the Código5.com.br private signature automagically
 ## How to Install
 - Insert the tag `<div class="codigo5-signature-widget-wrapper"></div>` with any selector you want
 - Load the script
-```
+```javascript
 <script src="https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master/build/signature-widget.min.js"></script>
 <script>cod5.signatureWidget.bootstrap({ theme: 'dark' });</script>
 ```
