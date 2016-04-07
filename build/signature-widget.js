@@ -30,7 +30,7 @@ exports.default = Host;
 "use strict";
 
 var signature_1 = require('./signature');
-exports.VERSION = '1.3.1';
+exports.VERSION = '1.4.0';
 exports.DEFAULT_OPTIONS = {
     cdnBaseUrl: 'https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master',
     selector: '.codigo5-signature-widget-wrapper',

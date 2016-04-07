@@ -1,6 +1,6 @@
 import Signature, {ISignatureOptions, SignatureTheme} from './signature';
 
-export const VERSION = '1.3.1';
+export const VERSION = '1.4.0';
 
 export const DEFAULT_OPTIONS = {
   cdnBaseUrl: 'https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master',
