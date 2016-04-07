@@ -41,11 +41,18 @@ function bootstrap(_options) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = bootstrap;
 // Expose globally
-window['Codigo5'] = window['Codigo5'] || {};
-window['Codigo5'].signatureWidget = {
-    VERSION: exports.VERSION,
-    bootstrap: bootstrap
-};
+//
+// TODO: I really didn't like the way I did it
+// I'd like to expose to window more in the es6 way
+// like `export * from './signature'`
+(function (global) {
+    global.signatureWidget = {
+        VERSION: exports.VERSION,
+        bootstrap: bootstrap,
+        Signature: signature_1.default,
+        SignatureTheme: signature_1.SignatureTheme
+    };
+})(window['Codigo5'] = window['Codigo5'] || {});
 
 },{"./signature":3}],3:[function(require,module,exports){
 "use strict";

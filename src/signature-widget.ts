@@ -1,4 +1,4 @@
-import Signature, {ISignatureOptions} from './signature';
+import Signature, {ISignatureOptions, SignatureTheme} from './signature';
 
 export const VERSION = '1.0.0';
 
@@ -15,9 +15,15 @@ export default function bootstrap(_options: ISignatureWidgetOptions) {
 }
 
 // Expose globally
-window['Codigo5'] = window['Codigo5'] || {};
-
-window['Codigo5'].signatureWidget = {
-  VERSION: VERSION,
-  bootstrap: bootstrap
-};
+//
+// TODO: I really didn't like the way I did it
+// I'd like to expose to window more in the es6 way
+// like `export * from './signature'`
+(function(global) {
+  global.signatureWidget = {
+    VERSION: VERSION,
+    bootstrap: bootstrap,
+    Signature: Signature,
+    SignatureTheme: SignatureTheme
+  };
+}(window['Codigo5'] = window['Codigo5'] || {}));
