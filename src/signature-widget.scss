@@ -1,5 +1,26 @@
-$primary: #fff;
+$light-bg: #000 !default;
+$dark-bg: #fff !default;
 
-body {
-  background-color: $primary;
+.codigo5-signature-widget {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+
+  &.is-light {
+    background: $light-bg;
+  }
+
+  &.is-dark {
+    background: $dark-bg;
+  }
+}
+
+.codigo5-signature-widget__logo {
+  display: inline-block;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+  }
 }
