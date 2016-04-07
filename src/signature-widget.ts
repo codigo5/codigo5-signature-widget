@@ -18,10 +18,10 @@ var depsLoaded = false;
 
 const loadDeps = (options: ISignatureWidgetOptions) => {
   if (!depsLoaded) {
-    let stylesheet = document.createElement('link');
-    stylesheet.setAttribute('rel', 'stylesheet')
-    stylesheet.setAttribute('type', 'text/css')
-    stylesheet.setAttribute('href', `${options.cdnBaseUrl}/build/signature-widget.min.css`);
+    let stylesheet: HTMLLinkElement = document.createElement('link');
+    stylesheet.rel = 'stylesheet';
+    stylesheet.type = 'text/css';
+    stylesheet.href = `${options.cdnBaseUrl}/build/signature-widget.min.css`;
 
     // append them
     document.querySelector('head').appendChild(stylesheet);
@@ -30,14 +30,21 @@ const loadDeps = (options: ISignatureWidgetOptions) => {
 
 export default function bootstrap(_options: ISignatureWidgetOptions) {
   const options = Object.assign({}, DEFAULT_OPTIONS, _options);
+  const traverseElements = () => {
+    // TODO: We could use ES6 babel polyfill, right? `Array.from`
+    Array.prototype.slice.apply(document.querySelectorAll(options.selector))
+      .forEach((element: any) => element.cod5Signature = element.cod5Signature || new Signature(element, options));
+  };
 
   if (options.autoLoadDeps) {
     loadDeps(options);
   }
 
-  // TODO: We could use ES6 babel polyfill, right? `Array.from`
-  Array.prototype.slice.apply(document.querySelectorAll(options.selector))
-    .forEach((element: any) => element.cod5Signature = element.cod5Signature || new Signature(element, options));
+  if (document.readyState === 'complete') {
+    traverseElements();
+  } else {
+    document.addEventListener('DOMContentLoaded', traverseElements);
+  }
 }
 
 // Expose globally

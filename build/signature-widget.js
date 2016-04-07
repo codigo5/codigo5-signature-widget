@@ -30,7 +30,7 @@ exports.default = Host;
 "use strict";
 
 var signature_1 = require('./signature');
-exports.VERSION = '1.2.0';
+exports.VERSION = '1.3.1';
 exports.DEFAULT_OPTIONS = {
     cdnBaseUrl: 'https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master',
     selector: '.codigo5-signature-widget-wrapper',
@@ -40,22 +40,29 @@ var depsLoaded = false;
 var loadDeps = function loadDeps(options) {
     if (!depsLoaded) {
         var stylesheet = document.createElement('link');
-        stylesheet.setAttribute('rel', 'stylesheet');
-        stylesheet.setAttribute('type', 'text/css');
-        stylesheet.setAttribute('href', options.cdnBaseUrl + '/build/signature-widget.min.css');
+        stylesheet.rel = 'stylesheet';
+        stylesheet.type = 'text/css';
+        stylesheet.href = options.cdnBaseUrl + '/build/signature-widget.min.css';
         // append them
         document.querySelector('head').appendChild(stylesheet);
     }
 };
 function bootstrap(_options) {
     var options = Object.assign({}, exports.DEFAULT_OPTIONS, _options);
+    var traverseElements = function traverseElements() {
+        // TODO: We could use ES6 babel polyfill, right? `Array.from`
+        Array.prototype.slice.apply(document.querySelectorAll(options.selector)).forEach(function (element) {
+            return element.cod5Signature = element.cod5Signature || new signature_1.default(element, options);
+        });
+    };
     if (options.autoLoadDeps) {
         loadDeps(options);
     }
-    // TODO: We could use ES6 babel polyfill, right? `Array.from`
-    Array.prototype.slice.apply(document.querySelectorAll(options.selector)).forEach(function (element) {
-        return element.cod5Signature = element.cod5Signature || new signature_1.default(element, options);
-    });
+    if (document.readyState === 'complete') {
+        traverseElements();
+    } else {
+        document.addEventListener('DOMContentLoaded', traverseElements);
+    }
 }
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = bootstrap;
@@ -108,7 +115,7 @@ var Signature = function () {
     }, {
         key: 'toString',
         value: function toString() {
-            return '\n      <div class="codigo5-signature-widget is-' + this.theme + '">\n        <a href="' + this.locationUrl + '" target="_blank" class="codigo5-signature-widget__logo">\n          <img src="' + this.logoUrl + '" width="' + this._options.logoWidth + '" height="' + this._options.logoHeight + '" />\n        </a>\n      </div>\n    ';
+            return '\n      <div class="codigo5-signature-widget is-' + this.theme + '">\n        <a href="' + this.locationUrl + '" title="Código5" target="_blank" class="codigo5-signature-widget__logo">\n          <img src="' + this.logoUrl + '" width="' + this._options.logoWidth + '" height="' + this._options.logoHeight + '" />\n        </a>\n      </div>\n    ';
         }
     }, {
         key: 'locationUrl',
