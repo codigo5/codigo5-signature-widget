@@ -26,4 +26,4 @@ export default function bootstrap(_options: ISignatureWidgetOptions) {
     Signature: Signature,
     SignatureTheme: SignatureTheme
   };
-}(window['Codigo5'] = window['Codigo5'] || {}));
+}(window['cod5'] = window['cod5'] || {}));

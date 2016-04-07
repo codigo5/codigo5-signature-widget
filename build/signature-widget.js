@@ -52,7 +52,7 @@ exports.default = bootstrap;
         Signature: signature_1.default,
         SignatureTheme: signature_1.SignatureTheme
     };
-})(window['Codigo5'] = window['Codigo5'] || {});
+})(window['cod5'] = window['cod5'] || {});
 
 },{"./signature":3}],3:[function(require,module,exports){
 "use strict";
