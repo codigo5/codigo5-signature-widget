@@ -59,7 +59,7 @@ export default class Signature {
   toString(): string {
     return `
       <div class="codigo5-signature-widget is-${this.theme}">
-        <a href="${this.locationUrl}" target="_blank" class="codigo5-signature-widget__logo">
+        <a href="${this.locationUrl}" title="Código5" target="_blank" class="codigo5-signature-widget__logo">
           <img src="${this.logoUrl}" width="${this._options.logoWidth}" height="${this._options.logoHeight}" />
         </a>
       </div>
