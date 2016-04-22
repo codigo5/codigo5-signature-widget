@@ -5,7 +5,7 @@ That's a JS widget to inject the Código5.com.br private signature automagically
 - Insert the tag `<div class="codigo5-signature-widget-wrapper"></div>` with any selector you want
 - Load the script
 ```javascript
-<script src="https://cdn.codigo5.com.br/signature/signature-widget.min.js"></script>
+<script src="http://cdn.codigo5.com.br/signature/signature-widget.min.js"></script>
 <script>cod5.signatureWidget.bootstrap({ theme: 'dark' });</script>
 ```
 
@@ -15,7 +15,7 @@ That's a JS widget to inject the Código5.com.br private signature automagically
 | `selector`     | DOMElement selector                    | string               | any                                                                                                                            | `'.codigo5-signature-widget-wrapper'`                              |
 | `autoLoadDeps` | Whether or not load the dependencies   | boolean              | true/false                                                                                                                     | `true`                                                             |
 | `theme`        | Theme identifier                       | enum, string, number | dark/light                                                                                                                     | `'light'`                                                          |
-| `cdnBaseUrl`   | CDN base url to fetch the dependencies | string               | any                                                                                                                            | `'https://cdn.rawgit.com/codigo5/codigo5-signature-widget/master'` |
+| `cdnBaseUrl`   | CDN base url to fetch the dependencies | string               | any                                                                                                                            | `'http://cdn.codigo5.com.br/signature/'` |
 | `logoWidth`    | Logo image width                       | string, number       | any                                                                                                                            | `200`                                                              |
 | `logoHeight`   | Logo image height                      | string, number       | any                                                                                                                            | `49`                                                               |
 
