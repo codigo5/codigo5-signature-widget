@@ -21,7 +21,7 @@ const loadDeps = (options: ISignatureWidgetOptions) => {
     let stylesheet: HTMLLinkElement = document.createElement('link');
     stylesheet.rel = 'stylesheet';
     stylesheet.type = 'text/css';
-    stylesheet.href = `${options.cdnBaseUrl}/build/signature-widget.min.css`;
+    stylesheet.href = `${options.cdnBaseUrl}/signature-widget.min.css`;
 
     // append them
     document.querySelector('head').appendChild(stylesheet);
