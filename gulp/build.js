@@ -1,3 +1,3 @@
 import gulp from 'gulp';
 
-gulp.task('build', ['styles', 'scripts']);
+gulp.task('build', ['styles', 'scripts', 'resources']);

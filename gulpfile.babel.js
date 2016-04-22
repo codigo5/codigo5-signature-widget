@@ -4,7 +4,8 @@ import requireDir from 'require-dir';
 gulp.paths = {
   src: 'src',
   dist: 'build',
-  tmp: '.tmp'
+  tmp: '.tmp',
+  resources: 'resources'
 };
 
 requireDir('./gulp');

@@ -14,5 +14,6 @@ gulp.task('deploy', ['build'], function() {
 
   return gulp.src(paths.dist + '/**/*')
     .pipe($.plumber())
-    .pipe($.rsync(rsyncOptions));
+    .pipe($.rsync(rsyncOptions))
+    .pipe($.size({ title: [deploy.hostname, deploy.destination].join('/'), showFiles: true }));
 });
