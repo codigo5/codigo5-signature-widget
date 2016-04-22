@@ -1,6 +1,7 @@
 .tmp/
 npm-debug.log
 node_modules
+deploy.json
 
 # atom-typescript compiles temporarily to do IntelliSense
 src/*.js
