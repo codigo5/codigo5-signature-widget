@@ -3,7 +3,7 @@ $dark-bg: #000 !default;
 
 .codigo5-signature-widget {
   width: 100%;
-  padding: 20px 0;
+  padding: 5px 0;
   text-align: center;
 
   &.is-light {
@@ -15,6 +15,21 @@ $dark-bg: #000 !default;
   }
 }
 
+.codigo5-signature-span{
+
+      font-size: 9px;
+      display: block;
+        &.is-light {
+          color: black;
+        }
+
+        &.is-dark {
+          color: white;
+        }
+}
+
+
+
 .codigo5-signature-widget__logo {
   display: inline-block;
 
@@ -23,4 +38,10 @@ $dark-bg: #000 !default;
     max-height: 100%;
     height: auto;
   }
+}
+
+.codigo5-signature-widget img{
+
+      height: 35px !important;
+      width: inherit !important;
 }
