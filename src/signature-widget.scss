@@ -15,20 +15,18 @@ $dark-bg: #000 !default;
   }
 }
 
-.codigo5-signature-span{
+.codigo5-signature-widget span {
+  font-size: 9px;
+  display: block;
 
-      font-size: 9px;
-      display: block;
-        &.is-light {
-          color: black;
-        }
+  &.is-light {
+    color: black;
+  }
 
-        &.is-dark {
-          color: white;
-        }
+  &.is-dark {
+    color: white;
+  }
 }
-
-
 
 .codigo5-signature-widget__logo {
   display: inline-block;
@@ -40,8 +38,7 @@ $dark-bg: #000 !default;
   }
 }
 
-.codigo5-signature-widget img{
-
-      height: 35px !important;
-      width: inherit !important;
+.codigo5-signature-widget img {
+  height: 35px !important;
+  width: inherit !important;
 }

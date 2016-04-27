@@ -11,7 +11,7 @@ export interface ISignatureOptions {
 export enum SignatureTheme {
   dark,
   light
-}
+} 
 
 export const SIGNATURE_URL: string = 'http://www.codigo5.com.br/';
 
