@@ -21,7 +21,7 @@ export default class Signature {
     cdnBaseUrl: '',
     theme: SignatureTheme.light,
     logoWidth: 200,
-    logoHeight: 49
+    logoHeight: 35
   };
 
   private _options: ISignatureOptions;
@@ -60,8 +60,8 @@ export default class Signature {
   toString(): string {
     return `
       <div class="codigo5-signature-widget is-${this.theme}">
-        <span class="codigo5-signature-widget__description">Desenvolvido e Hospedado por:</span>
-        <a href="${this.locationUrl}" title="Desenvolvido por Código5" target="_blank">
+        <span class="codigo5-signature-widget__description">Desenvolvido e Hospedado por</span>
+        <a href="${this.locationUrl}" title="Desenvolvido e Hospedado por Código5" target="_blank">
           <img src="${this.logoUrl}" class="codigo5-signature-widget__logo" width="${this._options.logoWidth}" height="${this._options.logoHeight}" alt="Código5">
         </a>
       </div>
