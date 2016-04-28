@@ -4,7 +4,7 @@ import {objectAssign} from './utils';
 export const VERSION = '1.4.0';
 
 export const DEFAULT_OPTIONS = {
-  cdnBaseUrl: 'http://cdn.codigo5.com.br/signature',
+  cdnBaseUrl: 'https://cdn.codigo5.com.br/signature',
   selector: '.codigo5-signature-widget-wrapper',
   autoLoadDeps: true
 };
