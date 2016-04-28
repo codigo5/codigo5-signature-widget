@@ -1,7 +1,7 @@
 import Signature, {ISignatureOptions, SignatureTheme} from './signature';
 import {objectAssign} from './utils';
 
-export const VERSION = '1.5.0';
+export const VERSION = '1.6.0';
 
 export const DEFAULT_OPTIONS = {
   cdnBaseUrl: 'https://cdn.codigo5.com.br/signature',
