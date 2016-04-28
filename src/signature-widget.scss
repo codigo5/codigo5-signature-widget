@@ -1,10 +1,10 @@
-$light-color: #000 !default;
-$light-bg: #fff !default;
-$dark-color: #fff !default;
-$dark-bg: #000 !default;
+$--light-color: #000 !default;
+$--light-bg: #fff !default;
+$--dark-color: #fff !default;
+$--dark-bg: #000 !default;
 
 $description-margin: 0 0 5px;
-$description-font-size: 9px;
+$description-font-size: .8rem;
 
 .codigo5-signature-widget {
   width: 100%;
@@ -12,13 +12,13 @@ $description-font-size: 9px;
   text-align: center;
 
   &.is-light {
-    color: $light-color;
-    background: $light-bg;
+    color: $--light-color;
+    background: $--light-bg;
   }
 
   &.is-dark {
-    color: $dark-color;
-    background: $dark-bg;
+    color: $--dark-color;
+    background: $--dark-bg;
   }
 }
 
