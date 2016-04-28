@@ -11,7 +11,7 @@ export interface ISignatureOptions {
 export enum SignatureTheme {
   dark,
   light
-} 
+}
 
 export const SIGNATURE_URL: string = 'http://www.codigo5.com.br/';
 
@@ -59,9 +59,9 @@ export default class Signature {
   toString(): string {
     return `
       <div class="codigo5-signature-widget is-${this.theme}">
-      <span class="codigo5-signature-span is-${this.theme}">Desenvolvido e Hospedado por:</span>
-        <a href="${this.locationUrl}" title="Desenvolvido e Hospedado por: Código 5" target="_blank" class="codigo5-signature-widget__logo">
-          <img src="${this.logoUrl}" width="${this._options.logoWidth}" height="${this._options.logoHeight}" />
+        <span class="codigo5-signature-widget__description">Desenvolvido e Hospedado por:</span>
+        <a href="${this.locationUrl}" title="Desenvolvido por Código5" target="_blank">
+          <img src="${this.logoUrl}" class="codigo5-signature-widget__logo" width="${this._options.logoWidth}" height="${this._options.logoHeight}" alt="Código5">
         </a>
       </div>
     `;

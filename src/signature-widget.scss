@@ -1,44 +1,36 @@
+$light-color: #000 !default;
 $light-bg: #fff !default;
+$dark-color: #fff !default;
 $dark-bg: #000 !default;
+
+$description-margin: 0 0 5px;
+$description-font-size: 9px;
 
 .codigo5-signature-widget {
   width: 100%;
-  padding: 5px 0;
+  padding: 15px 0;
   text-align: center;
 
   &.is-light {
+    color: $light-color;
     background: $light-bg;
   }
 
   &.is-dark {
+    color: $dark-color;
     background: $dark-bg;
   }
 }
 
-.codigo5-signature-widget span {
-  font-size: 9px;
+.codigo5-signature-widget__description {
   display: block;
-
-  &.is-light {
-    color: black;
-  }
-
-  &.is-dark {
-    color: white;
-  }
+  margin: $description-margin;
+  font-size: $description-font-size;
 }
 
 .codigo5-signature-widget__logo {
-  display: inline-block;
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    height: auto;
-  }
-}
-
-.codigo5-signature-widget img {
-  height: 35px !important;
-  width: inherit !important;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
 }
