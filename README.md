@@ -2,9 +2,9 @@
 That's a JS widget to inject the Código5.com.br private signature automagically.
 
 ## How to Install
-- Insert the tag `<div class="codigo5-signature-widget-wrapper"></div>` with any selector you want
-- Load the script
-```javascript
+- Insert the following snippet code:
+```html
+<div class="codigo5-signature-widget-wrapper"></div>
 <script src="//cdn.codigo5.com.br/signature/signature-widget.min.js"></script>
 <script>cod5.signatureWidget.bootstrap({ theme: 'dark' });</script>
 ```
