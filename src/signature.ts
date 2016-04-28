@@ -1,5 +1,6 @@
 import UrlBuilder, {IUrlBuilder} from './url-builder';
 import Host, {IHost} from './host';
+import {objectAssign} from './utils';
 
 export interface ISignatureOptions {
   cdnBaseUrl: string;
@@ -30,7 +31,7 @@ export default class Signature {
   private _urlBuilder: IUrlBuilder;
 
   constructor(private _element: HTMLElement, options: ISignatureOptions) {
-    this._options = Object.assign({}, Signature.defaultOptions, options);
+    this._options = objectAssign({}, Signature.defaultOptions, options);
     this._host = new Host(window.document);
     this._urlBuilder = new UrlBuilder(this._host);
     this.render();

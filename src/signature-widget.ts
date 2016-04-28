@@ -1,4 +1,5 @@
 import Signature, {ISignatureOptions, SignatureTheme} from './signature';
+import {objectAssign} from './utils';
 
 export const VERSION = '1.4.0';
 
@@ -29,7 +30,7 @@ const loadDeps = (options: ISignatureWidgetOptions) => {
 };
 
 export default function bootstrap(_options: ISignatureWidgetOptions) {
-  const options = Object.assign({}, DEFAULT_OPTIONS, _options);
+  const options = objectAssign({}, DEFAULT_OPTIONS, _options);
   const traverseElements = () => {
     // TODO: We could use ES6 babel polyfill, right? `Array.from`
     Array.prototype.slice.apply(document.querySelectorAll(options.selector))
