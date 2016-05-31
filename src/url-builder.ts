@@ -13,14 +13,14 @@ export interface IUrlBuilder {
 }
 
 export default class UrlBuilder implements IUrlBuilder {
-  constructor(private _host: IHost) { }
+  constructor(private host: IHost) { }
 
   get url(): string {
     return (<any>window).encodeURI(`${SIGNATURE_URL}?utm_source=${this.utmSource}&utm_medium=${this.utmMedium}`);
   }
 
   get utmSource(): string {
-    return `${this._host.title} (${this._host.hostname})`;
+    return `${this.host.title} (${this.host.hostname})`;
   }
 
   get utmMedium(): string {

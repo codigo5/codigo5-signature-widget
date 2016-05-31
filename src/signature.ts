@@ -5,8 +5,8 @@ import {objectAssign} from './utils';
 export interface ISignatureOptions {
   cdnBaseUrl: string;
   theme: SignatureTheme;
-  logoWidth: number;
-  logoHeight: number;
+  logoWidth: number | string;
+  logoHeight: number | string;
 }
 
 export enum SignatureTheme {
@@ -21,40 +21,36 @@ export default class Signature {
     cdnBaseUrl: '',
     theme: SignatureTheme.light,
     logoWidth: 130,
-    logoHeight: 35
+    logoHeight: 'auto'
   };
 
-  private _options: ISignatureOptions;
-
-  private _host: IHost;
-
-  private _urlBuilder: IUrlBuilder;
-
-  constructor(private _element: HTMLElement, options: ISignatureOptions) {
-    this._options = objectAssign({}, Signature.defaultOptions, options);
-    this._host = new Host(window.document);
-    this._urlBuilder = new UrlBuilder(this._host);
+  constructor(
+    private element: HTMLElement,
+    private options: ISignatureOptions,
+    private urlBuilder: IUrlBuilder
+  ) {
+    this.options = objectAssign({}, Signature.defaultOptions, options);
     this.render();
   }
 
   get locationUrl(): string {
-    return this._urlBuilder.url;
+    return this.urlBuilder.url;
   }
 
   get logoUrl(): string {
-    return `${this._options.cdnBaseUrl}/resources/codigo5-logo-for-${this.theme}-theme.png`;
+    return `${this.options.cdnBaseUrl}/resources/codigo5-logo-for-${this.theme}-theme.png`;
   }
 
   get theme(): string {
-    if (typeof this._options.theme === 'string') {
-      return this._options.theme.toString();
+    if (typeof this.options.theme === 'string') {
+      return this.options.theme.toString();
     } else {
-      return SignatureTheme[this._options.theme];
+      return SignatureTheme[this.options.theme];
     }
   }
 
   render(): void {
-    this._element.innerHTML = this.toString();
+    this.element.innerHTML = this.toString();
   }
 
   toString(): string {
@@ -62,7 +58,7 @@ export default class Signature {
       <div class="codigo5-signature-widget is-${this.theme}">
         <span class="codigo5-signature-widget__description">Desenvolvido e Hospedado por</span>
         <a href="${this.locationUrl}" title="Desenvolvido e Hospedado por Código5" target="_blank">
-          <img src="${this.logoUrl}" class="codigo5-signature-widget__logo" width="${this._options.logoWidth}" height="${this._options.logoHeight}" alt="Código5">
+          <img src="${this.logoUrl}" class="codigo5-signature-widget__logo" width="${this.options.logoWidth}" height="${this.options.logoHeight}" alt="Código5">
         </a>
       </div>
     `;

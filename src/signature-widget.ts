@@ -1,7 +1,9 @@
 import Signature, {ISignatureOptions, SignatureTheme} from './signature';
+import Host from './host';
+import UrlBuilder from './url-builder';
 import {objectAssign} from './utils';
 
-export const VERSION = '1.6.0';
+export const VERSION = '1.7.0';
 
 export const DEFAULT_OPTIONS = {
   cdnBaseUrl: 'https://cdn.codigo5.com.br/signature',
@@ -32,9 +34,12 @@ const loadDeps = (options: ISignatureWidgetOptions) => {
 export default function bootstrap(_options: ISignatureWidgetOptions) {
   const options = objectAssign({}, DEFAULT_OPTIONS, _options);
   const traverseElements = () => {
+    let host = new Host(window.document);
+    let urlBuilder = new UrlBuilder(host);
+
     // TODO: We could use ES6 babel polyfill, right? `Array.from`
     Array.prototype.slice.apply(document.querySelectorAll(options.selector))
-      .forEach((element: any) => element.cod5Signature = element.cod5Signature || new Signature(element, options));
+      .forEach(element => element.cod5Signature = element.cod5Signature || new Signature(element, options, urlBuilder));
   };
 
   if (options.autoLoadDeps) {

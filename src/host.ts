@@ -9,12 +9,12 @@ export interface IHost {
 
 export default class Host implements IHost {
   hostname: string;
-  
-  constructor(private _document: Document) {
-    this.hostname = this._document.location.hostname;
+
+  constructor(private document: Document) {
+    this.hostname = this.document.location.hostname;
   }
 
   get title(): string {
-    return this._document.title;
+    return this.document.title;
   }
 }
