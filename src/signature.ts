@@ -20,7 +20,7 @@ export default class Signature {
   public static defaultOptions: ISignatureOptions = {
     cdnBaseUrl: '',
     theme: SignatureTheme.light,
-    logoWidth: 200,
+    logoWidth: 130,
     logoHeight: 35
   };
 
