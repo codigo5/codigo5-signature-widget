@@ -6,5 +6,19 @@
     "emitDecoratorMetadata": true,
     "experimentalAsyncFunctions": true,
     "experimentalDecorators": true
+  },
+  "filesGlob": [
+    "**/*.ts",
+    "!node_modules/**"
+  ],
+  "files": [
+    "src/host.ts",
+    "src/signature-widget.ts",
+    "src/signature.ts",
+    "src/url-builder.ts",
+    "src/utils.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
   }
 }
